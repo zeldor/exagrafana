@@ -2,7 +2,7 @@ FROM debian:stable
 MAINTAINER Florian Reck
 RUN apt-get -qy update
 RUN apt-get -qy install gnupg gnupg2 curl apt-transport-https
-RUN curl https://packagecloud.io/gpg.key | apt-key add -
+RUN curl --silent https://packagecloud.io/gpg.key | apt-key add -
 RUN mv /etc/apt/sources.list /etc/apt/sources.list-dist
 ADD etc/apt/sources.list /etc/apt/sources.list
 RUN apt-get -qy update
