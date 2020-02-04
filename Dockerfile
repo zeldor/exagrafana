@@ -2,6 +2,7 @@ FROM debian:stable
 MAINTAINER Florian Reck
 RUN apt-get -qy update
 RUN apt-get -qy install gnupg gnupg2 curl apt-transport-https
+RUN set ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1
 RUN curl --silent https://packagecloud.io/gpg.key | apt-key add -
 RUN mv /etc/apt/sources.list /etc/apt/sources.list-dist
 ADD etc/apt/sources.list /etc/apt/sources.list
